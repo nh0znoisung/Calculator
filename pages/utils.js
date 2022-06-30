@@ -1,5 +1,6 @@
-//1..2112
-exports.convert = function (s){
+// TODO: Convert a string into spiltted array of tokens and operators (+,-,*,/) 
+//  String => Array[String]
+function convert (s){
     // Return arr
     let arr = [], curr = "";
     for(let i = 0; i<s.length; i++){
@@ -11,12 +12,19 @@ exports.convert = function (s){
             curr += s[i];
         }
     }
-    arr.push(curr);
+    // Only insert when remaining string is not empty
+    if(curr != ""){
+        arr.push(curr);
+    }
     return arr;
 }
 
-// [a, op, b, op]
-exports.check_expression = function (arr){
+// TODO: Checking the array of converted expression is valid
+// Valid condition: 
+//      If array is empty, return true
+//      If array is not empty, check if the first element is a number and numbers and operators are placed alternating.
+//  Array[String] => Boolean
+function check_expression (arr){
     for(let i = 0; i<arr.length; i++){
         if(['+', '-', '*', '/'].includes(arr[i])){
             if(i%2 == 0) return false;
@@ -27,11 +35,12 @@ exports.check_expression = function (arr){
     return true;
 }
 
-exports.evaluate = function (s){
+function evaluate (s){
     //TODO: implement evaluator, s:string
     // Float + BinOp + Unary(-,+) + (-, +, *, /)/ No unary
     let st = [], arr = convert(s);
     if(check_expression(arr) == false) throw "Invalid expression";
+    if (arr.length == 0) return 0;
     // push, pop() -> return value
     // parseFloat(ss)
     // length is odd number
@@ -70,4 +79,10 @@ exports.evaluate = function (s){
         }
     }
     return st[0];
+}
+
+module.exports = {
+    convert: convert,
+    check_expression: check_expression,
+    evaluate: evaluate
 }

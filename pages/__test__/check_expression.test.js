@@ -1,10 +1,16 @@
 const check_expression = require('../utils.js').check_expression;
 
-// test()
-const convert =  require('../utils.js').convert
+// TODO: Checking the array of converted expression is valid
+// Valid condition: 
+//      If array is empty, return true
+//      If array is not empty, check if the first element is a number and numbers and operators are placed alternating.
+//  Array[String] => Boolean
+// Fixed bug: 
 
-// s: String => arr[]
-// Float point, operator
-test("properly covert string to array", () => {
-    expect(convert("1+3.5")).toStrictEqual(['1', '+', '3.5']);
+test("test basic", () => {
+    expect(check(['1','+','3.5'])).toStrictEqual(true);
+})
+
+test("test empty array", () => {
+    expect(check([])).toStrictEqual(true);
 })

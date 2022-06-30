@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useRef} from 'react';
-import {evaluate} from './utils.js';
+import {evaluate, convert, check_expression} from './utils.js';
 
 
 const useEventListener = (eventName, handler) => {
@@ -64,7 +64,9 @@ export default function Main() {
             }
         }
 
-        setResult(result.slice(0, -1));
+        if (isTyping){
+            setResult(result.slice(0,-1));
+        }
     }
 
     const clear = () => {
@@ -86,6 +88,7 @@ export default function Main() {
         } catch(e) {
             setResult("Invalid Format");
             setIsTyping(false);
+            alert(e)
         }
     }
     const handleKeyPress = ({key}) => {
