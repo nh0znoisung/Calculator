@@ -25,6 +25,7 @@ function convert (s){
 //      If array is not empty, check if the first element is a number and numbers and operators are placed alternating.
 //  Array[String] => Boolean
 function check_expression (arr){
+    if(arr.length > 0 && arr.length % 2 == 0) return false;
     for(let i = 0; i<arr.length; i++){
         if(['+', '-', '*', '/'].includes(arr[i])){
             if(i%2 == 0) return false;
