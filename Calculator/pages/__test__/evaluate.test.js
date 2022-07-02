@@ -1,3 +1,10 @@
+// Enzyme -> DOM Testing
+// Jest: For testing bussiness logic in JS
+// https://jestjs.io/docs/tutorial-react#snapshot-testing
+// https://www.youtube.com/watch?v=3e1GHCA3GP0
+// React testing library
+// DOM interaction
+
 const evaluate =  require('../utils.js').evaluate
 
 
@@ -59,6 +66,3 @@ test("test high precedence 4", () => {
 test("test divide 0", () => {
     expect(evaluate("1/0")).toStrictEqual(Infinity);
 })
-
-
-
