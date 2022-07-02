@@ -13,12 +13,13 @@ This is the project about simple **Calculator** simulation.using `Javascript` pr
 ### Installation
 ```bash
 git clone https://github.com/nh0znoisung/Calculator.git
-cd Calculator/Calculator
+cd Calculator
 ```
 
 ### Running manually
 ```bash
 cd Calculator
+npm install
 npm run dev
 ```
 Visit [http://localhost:3000](http://localhost:3000)  to access the website.
