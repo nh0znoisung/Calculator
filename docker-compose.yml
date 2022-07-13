@@ -3,9 +3,9 @@ version: '3.3'
 services:
   elevator:
     container_name: calculator
-    build: ./Calculator
+    build: .
     command: npm run dev
     volumes:
-      - ./Calculator:/usr/app
+      - .:/usr/app
     ports:
       - 3000:3000
